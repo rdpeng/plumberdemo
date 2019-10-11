@@ -1,6 +1,8 @@
 ## Ozone client function
 
-library(jsonlite); library(curl); library(glue)
+library(jsonlite)
+library(curl)
+library(glue)
 
 ozone_predict_remote <- function(temp) {
         ## Construct API URL
@@ -29,6 +31,7 @@ ozone_vpredict_remote <- function(temp) {
                     "temp={temp}")
         
         ## Open connection to the web server
+        message("connecting to server...")
         con <- curl(cmd)
         
         ## Read the answer from the server
