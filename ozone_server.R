@@ -38,7 +38,8 @@ ozone_predict <- function(temp) {
 #* @param temp The temperature input
 #* @get /ozone_v
 ozone_vpredict <- function(temp) {
-        temp <- strsplit(x, ",", fixed = TRUE)[[1]]
+        temp <- URLdecode(temp)
+        temp <- strsplit(temp, ",", fixed = TRUE)[[1]]
         
         ## Check input type
         temp <- as.numeric(temp)
