@@ -30,6 +30,7 @@ median_CI <- function(x, N = 1000) {
         con <- curl(cmd)
         
         ## Read the answer from the server
+        message("connecting to server")
         tryCatch({
                 ans <- readLines(con, 1, warn = FALSE)
         }, finally = {
@@ -39,4 +40,5 @@ median_CI <- function(x, N = 1000) {
         ## Convert answer from JSON and return
         fromJSON(ans)
 }
-}
+
+
