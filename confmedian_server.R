@@ -35,3 +35,4 @@ confint_median_compute <- function(key, bucket, N) {
         ## Compute the confidence interval
         confint_median(x, N)
 }
+
