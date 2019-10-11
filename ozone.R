@@ -17,7 +17,7 @@ library(splines)
 library(datasets)
 fit <- lm(Ozone ~ ns(Temp, 2), data = airquality)
 
-#* Predict Ozone from Temperature
+#* Predict Ozone from a Single Temperature
 #* @param temp The temperature input
 #* @get /ozone
 ozone_predict <- function(temp) {
@@ -30,5 +30,25 @@ ozone_predict <- function(temp) {
         ## Return predicted value
         as.numeric(p)
 }
+
+
+
+## temp is specified as temp1,temp2,temp3
+#* Predict Ozone from a Single Temperature
+#* @param temp The temperature input
+#* @get /ozone_v
+ozone_vpredict <- function(temp) {
+        temp <- strsplit(x, ",", fixed = TRUE)[[1]]
+        
+        ## Check input type
+        temp <- as.numeric(temp)
+        
+        ## Make prediction from fitted model
+        p <- predict(fit, data.frame(Temp = temp))
+        
+        ## Return predicted value
+        as.numeric(p)
+}
+
 
 
