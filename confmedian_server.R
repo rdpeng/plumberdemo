@@ -1,3 +1,4 @@
+library(aws.s3)
 
 ## Return 95% confidence interval for the median
 confint_median <- function(x, N = 1000) {
